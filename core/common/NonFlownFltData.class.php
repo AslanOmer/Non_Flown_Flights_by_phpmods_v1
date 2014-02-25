@@ -1,8 +1,8 @@
 <?php
 ///////////////////////////////////////////////
-///  Non Flown Flights v1.1 by php-mods.eu  ///
+///  Non Flown Flights v1.2 by php-mods.eu  ///
 ///            Author php-mods.eu           ///
-///           Packed at 24/02/2014          ///
+///           Packed at 25/02/2014          ///
 ///     Copyright (c) 2014, php-mods.eu     ///
 ///////////////////////////////////////////////
 
@@ -16,6 +16,10 @@ class NonFlownFltData extends CodonData {
 		$query = "SELECT COUNT(pirepid) AS total FROM ".TABLE_PREFIX."pireps WHERE depicao='$dep' AND arricao='$arr' AND pilotid='$pid' AND accepted='1'";
 		$check = DB::get_row($query);
         return $check->total; 
+	}
+	public function aircraft($id) {
+		$sql = "SELECT * FROM ".TABLE_PREFIX."aircraft WHERE id='$id'";
+		return DB::get_row($sql);
 	}
 }
 ?>

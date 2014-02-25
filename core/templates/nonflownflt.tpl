@@ -1,8 +1,8 @@
 <?php
 ///////////////////////////////////////////////
-///  Non Flown Flights v1.1 by php-mods.eu  ///
+///  Non Flown Flights v1.2 by php-mods.eu  ///
 ///            Author php-mods.eu           ///
-///           Packed at 24/02/2014          ///
+///           Packed at 25/02/2014          ///
 ///     Copyright (c) 2014, php-mods.eu     ///
 ///////////////////////////////////////////////
 
@@ -28,7 +28,8 @@ $flight = NonFlownFltData::pilot_field_flt($sch->depicao, $sch->arricao, $userin
 		<br />
 		
 		<strong>Departure: </strong><?php echo $sch->deptime;?> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Arrival: </strong><?php echo $sch->arrtime;?><br />
-		<strong>Equipment: </strong><?php echo $sch->aircraft; ?> (<?php echo $sch->registration;?>)  
+        <?php $airc = NonFlownFltData::aircraft($sch->aircraft); ?>
+		<strong>Equipment: </strong><?php echo $airc->name; ?> (<?php echo $airc->registration;?>)  
         <strong>Distance: </strong><?php echo $sch->distance; ?><?php echo Config::Get('UNITS'); ?>
 		<br />
 		<strong>Days Flown: </strong><?php echo Util::GetDaysCompact($sch->daysofweek); ?><br />

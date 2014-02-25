@@ -1,8 +1,8 @@
 <?php
 ///////////////////////////////////////////////
-///  Non Flown Flights v1.1 by php-mods.eu  ///
+///  Non Flown Flights v1.2 by php-mods.eu  ///
 ///            Author php-mods.eu           ///
-///           Packed at 24/02/2014          ///
+///           Packed at 25/02/2014          ///
 ///     Copyright (c) 2014, php-mods.eu     ///
 ///////////////////////////////////////////////
 
