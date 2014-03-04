@@ -1,9 +1,9 @@
 This module created by phpmods and can be used only with phpVMS (www.phpvms.net).
 
 ///////////////////////////////////////////////
-///  Non Flown Flights v1.2 by php-mods.eu  ///
+///  Non Flown Flights v1.3 by php-mods.eu  ///
 ///            Author php-mods.eu           ///
-///           Packed at 25/02/2014          ///
+///           Packed at 04/03/2014          ///
 ///     Copyright (c) 2014, php-mods.eu     ///
 ///////////////////////////////////////////////
 
@@ -18,3 +18,5 @@ Version 1.1 (24.02.2014) - Module Updated
 				- Edited some functions because v1.0 had some mistakes
 Version 1.2 (25.02.2014) - Module Updated
 				- Corrected some mistakes on the module's main table.
+Version 1.3 (04.03.2014) - Module Updated
+				- Added rank level check based on the aircraft which is selected on each one schedule.

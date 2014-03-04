@@ -1,8 +1,8 @@
 <?php
 ///////////////////////////////////////////////
-///  Non Flown Flights v1.2 by php-mods.eu  ///
+///  Non Flown Flights v1.3 by php-mods.eu  ///
 ///            Author php-mods.eu           ///
-///           Packed at 25/02/2014          ///
+///           Packed at 04/03/2014          ///
 ///     Copyright (c) 2014, php-mods.eu     ///
 ///////////////////////////////////////////////
 
@@ -20,15 +20,16 @@
 <tbody>
 <?php $i = 0; ?>
 <?php foreach($schedules as $sch) {
-$flight = NonFlownFltData::pilot_field_flt($sch->depicao, $sch->arricao, $userinfo->pilotid); ?>
-<?php if($flight == '0') { $i = $i+1 ?>
+$flight = NonFlownFltData::pilot_field_flt($sch->flightnum, $userinfo->pilotid);
+$airc = NonFlownFltData::aircraft($sch->aircraft); ?>
+<?php if($flight == '0') {
+if($airc->ranklevel <= $userinfo->rankid) { $i = $i+1 ?>
 <tr>
 <td>
 		<a href="<?php echo SITE_URL; ?>/index.php/schedules/details/<?php echo $sch->id; ?>"><?php echo $sch->code; ?><?php echo $sch->flightnum; ?> (<?php echo $sch->depicao; ?>-<?php echo $sch->arricao; ?>)</a>
 		<br />
 		
 		<strong>Departure: </strong><?php echo $sch->deptime;?> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Arrival: </strong><?php echo $sch->arrtime;?><br />
-        <?php $airc = NonFlownFltData::aircraft($sch->aircraft); ?>
 		<strong>Equipment: </strong><?php echo $airc->name; ?> (<?php echo $airc->registration;?>)  
         <strong>Distance: </strong><?php echo $sch->distance; ?><?php echo Config::Get('UNITS'); ?>
 		<br />
@@ -56,7 +57,7 @@ $flight = NonFlownFltData::pilot_field_flt($sch->depicao, $sch->arricao, $userin
 			<?php			 
 		}		
 		?></td></tr>
-<?php } ?>
+<?php } } ?>
 <?php } ?>
 <?php if($i == '0') {echo '<tr><td align="center" colspan="2">Congratulations, you have flown all our flights.</td></tr>';} ?>
 </tbody>
